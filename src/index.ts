@@ -1,7 +1,4 @@
-import RemoteFramesProvider from './RemoteFramesProvider'
-import RemoteFrame from './RemoteFrame'
+import RemoteFramesProvider from "./RemoteFramesProvider";
+import RemoteFrame from "./RemoteFrame";
 
-export {
-  RemoteFramesProvider,
-  RemoteFrame,
-};
+export { RemoteFramesProvider, RemoteFrame };

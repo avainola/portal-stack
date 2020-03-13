@@ -3,9 +3,7 @@ import * as ReactDOM from "react-dom";
 
 import RemoteFramesContext from "./RemoteFramesContext";
 
-type Container = HTMLElement | undefined;
-
-function renderToPortal(stack: React.ReactNode[], container: Container) {
+function renderToPortal(stack: React.ReactNode[], container?: HTMLElement) {
   if (stack.length < 1 || !container) {
     return null;
   }
@@ -22,15 +20,13 @@ function renderToPortal(stack: React.ReactNode[], container: Container) {
   return ReactDOM.createPortal(<>{renderStack}</>, container);
 }
 
-type Target = HTMLElement | Promise<HTMLElement>;
-
 interface Props {
-  target: Target;
+  target: HTMLElement | Promise<HTMLElement>;
   children: React.ReactNode;
 }
 
 const RemoteFramesProvider = ({ children, target }: Props) => {
-  const [container, setContainer] = React.useState();
+  const [container, setContainer] = React.useState<HTMLElement>();
   React.useEffect(() => {
     if (target instanceof HTMLElement) {
       setContainer(target);
