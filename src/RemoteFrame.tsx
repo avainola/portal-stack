@@ -1,17 +1,12 @@
-import * as React from 'react'
-
-import RemoteFramesContext from './RemoteFramesContext'
+import * as React from 'react';
+import RemoteFramesContext from './RemoteFramesContext';
 
 interface ConsumerProps {
-  pushToPortal?: (children: React.ReactNode) => void;
-  removeFromPortal?: (children: React.ReactNode) => void;
+  pushToPortal?: (children: React.ReactElement) => void;
+  removeFromPortal?: (children: React.ReactElement) => void;
 }
 
-interface Props {
-  children: React.ReactNode;
-}
-
-const RemoteFrame = ({ children }: Props): React.ReactNode => {
+const RemoteFrame: React.FC<{ children: React.ReactElement }> = ({ children }) => {
   const { pushToPortal, removeFromPortal }: ConsumerProps = React.useContext(RemoteFramesContext);
 
   React.useEffect(() => {
@@ -24,10 +19,10 @@ const RemoteFrame = ({ children }: Props): React.ReactNode => {
         removeFromPortal(children);
       }
     }
-  }, [children])
+  }, [pushToPortal, removeFromPortal])
 
   if (!pushToPortal) {
-    return children;
+    return children
   }
 
   return null;

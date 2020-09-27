@@ -5,31 +5,39 @@
   "repository": "https://github.com/avainola/portal-stack",
   "main": "index.js",
   "scripts": {
-    "storybook": "start-storybook",
-    "build": "tsc",
-    "test": "jest"
+    "clean": "rm -rf build",
+    "lint": "eslint src",
+    "test": "jest",
+    "build": "tsc --listFiles --diagnostics",
+    "demo": "webpack-dev-server --config demo/webpack.config.js"
   },
   "author": "Artur Vainola",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@storybook/addon-info": "^5.3.14",
-    "@storybook/react": "^5.3.14",
-    "@types/jest": "^25.1.4",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.5",
-    "@types/storybook__react": "^5.2.1",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.6",
-    "jest": "^25.1.0",
-    "react-docgen-typescript-loader": "^3.7.1",
-    "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "react-test-renderer": "^16.13.0",
-    "ts-jest": "^25.2.1",
-    "typescript": "^3.8.3"
+    "@babel/core": "^7.11.6",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.14",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
+    "babel-jest": "^26.3.0",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.10.0",
+    "html-webpack-plugin": "^4.5.0",
+    "jest": "^26.4.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
-  "dependencies": {
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
-  }
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "dependencies": {}
 }
